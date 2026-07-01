@@ -65,7 +65,7 @@ Rules:
   Future<String> executeTask(String userGoal) async {
     final isRunning = await _screenService.isServiceRunning();
     if (!isRunning) {
-      return 'Accessibility service is not enabled. Go to Settings → Accessibility → PrivateAgent Screen Control and enable it.';
+      return 'Accessibility service is not enabled. Go to Settings → Accessibility → ArcaneFlow Screen Control and enable it.';
     }
 
     final results = <String>[];
@@ -78,7 +78,7 @@ Rules:
 
       // 1. Read the current screen text
       final screenContent = await _screenService.getScreenDescription();
-      developer.log('=== SCREEN DUMP (Step ${step + 1}) ===\n$screenContent', name: 'PrivateAgent');
+      developer.log('=== SCREEN DUMP (Step ${step + 1}) ===\n$screenContent', name: 'ArcaneFlow');
 
       // Determine previous result string
       final prevResultStr = step > 0 && results.isNotEmpty 
@@ -101,12 +101,12 @@ CURRENT SCREEN TEXT DUMP:
 $screenContent$prevResultStr
 Step ${step + 1}/${_aiService.maxSteps}. Look at the text dump and coordinates. What is the next action?''';
 
-      developer.log('=== AI PROMPT ===\n$prompt', name: 'PrivateAgent');
+      developer.log('=== AI PROMPT ===\n$prompt', name: 'ArcaneFlow');
 
       String response;
       try {
         response = await _aiService.sendMessage(prompt);
-        developer.log('=== RAW AI RESPONSE ===\n$response', name: 'PrivateAgent');
+        developer.log('=== RAW AI RESPONSE ===\n$response', name: 'ArcaneFlow');
       } catch (e) {
         results.add('AI error: $e');
         _report('Error: $e');
@@ -140,7 +140,7 @@ Step ${step + 1}/${_aiService.maxSteps}. Look at the text dump and coordinates. 
       final reasoning = actionJson['reasoning'] as String? ?? '';
       final isComplete = actionJson['is_complete'] == true;
 
-      developer.log('=== PARSED ACTION ===\nAction: $action\nParams: $params\nReasoning: $reasoning\nIs Complete: $isComplete', name: 'PrivateAgent');
+      developer.log('=== PARSED ACTION ===\nAction: $action\nParams: $params\nReasoning: $reasoning\nIs Complete: $isComplete', name: 'ArcaneFlow');
 
       _report('Step ${step + 1}: $reasoning');
 
@@ -207,7 +207,7 @@ Step ${step + 1}/${_aiService.maxSteps}. Look at the text dump and coordinates. 
           actionResult = 'Unknown action: $action';
       }
 
-      developer.log('=== NATIVE EXECUTION RESULT ===\n$actionResult', name: 'PrivateAgent');
+      developer.log('=== NATIVE EXECUTION RESULT ===\n$actionResult', name: 'ArcaneFlow');
 
       results.add('Step ${step + 1}: $actionResult ($reasoning)');
 

@@ -1,4 +1,4 @@
-name: private_agent
+name: arcane_flow
 description: "AI agent for Android"
 publish_to: "none"
 version: 0.1.0

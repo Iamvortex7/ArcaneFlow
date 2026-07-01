@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
         _messages.add(ChatMessage(
           role: 'assistant',
           content:
-              'Hi! I\'m PrivateAgent. I can help you control your phone.\n\n'
+              'Hi! I\'m ArcaneFlow. I can help you control your phone.\n\n'
               '${accessibilityEnabled ? '✅ Screen Control is ACTIVE — I can read and control other apps!' : '⚠️ Screen Control is OFF — Go to Settings to enable it for multi-step tasks.'}\n\n'
               'Try saying:\n'
               '• "Open YouTube"\n'
@@ -183,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('PrivateAgent'),
+        title: const Text('ArcaneFlow'),
         actions: [
           // Screen control test button
           IconButton(
@@ -202,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         '1. Go to Settings (⚙️ icon)\n'
                         '2. Find "Screen Control (Accessibility)"\n'
                         '3. Tap "Open Accessibility Settings"\n'
-                        '4. Find "PrivateAgent Screen Control"\n'
+                        '4. Find "ArcaneFlow Screen Control"\n'
                         '5. Toggle it ON',
                   ));
                 });

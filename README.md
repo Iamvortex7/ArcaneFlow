@@ -1,6 +1,6 @@
-# PrivateAgent
+# ArcaneFlow
 
-PrivateAgent is an open-source Android automation agent built with Flutter. It utilizes the DeepSeek API and native Android Accessibility Services to interpret screen layouts and execute multi-step tasks across any installed application via natural language commands.
+ArcaneFlow is an open-source Android automation agent built with Flutter. It utilizes the DeepSeek API and native Android Accessibility Services to interpret screen layouts and execute multi-step tasks across any installed application via natural language commands.
 
 ## Architecture
 
@@ -30,19 +30,19 @@ This app requires an AI brain to operate. You can use it **100% for free** by us
 1. Install the APK on your Android device (API 30+ recommended).
 2. Go to [OpenRouter.ai](https://openrouter.ai/) and create a free account.
 3. Generate a free API Key.
-4. Launch PrivateAgent and go to the **Settings** screen.
+4. Launch ArcaneFlow and go to the **Settings** screen.
 5. Tap the **"OpenRouter"** quick-select chip under Base URL.
 6. Paste your API Key.
 7. Type `openai/gpt-oss-120b:free` (or any other free model) into the Model field.
-8. Enable the **"PrivateAgent Screen Control"** service in your Android Accessibility Settings.
+8. Enable the **"ArcaneFlow Screen Control"** service in your Android Accessibility Settings.
 
 ### Ollama Cloud
 
-PrivateAgent now ships with a built-in **Ollama Cloud** preset.
+ArcaneFlow now ships with a built-in **Ollama Cloud** preset.
 
 1. Go to [ollama.com](https://ollama.com/) and create an account.
 2. Generate an API key from your account settings.
-3. In PrivateAgent Settings, tap the **"Ollama Cloud"** chip.
+3. In ArcaneFlow Settings, tap the **"Ollama Cloud"** chip.
 4. Paste your Ollama Cloud API key.
 5. Pick a model (e.g. `gemma3:4b`) or tap **Fetch** to see available models.
 6. Save and start chatting.
@@ -51,11 +51,11 @@ PrivateAgent now ships with a built-in **Ollama Cloud** preset.
 
 ## Hermes Integration (Experimental)
 
-PrivateAgent can expose a local HTTP bridge so that a Hermes instance running on the same Android device (e.g. inside Termux) can control the phone directly.
+ArcaneFlow can expose a local HTTP bridge so that a Hermes instance running on the same Android device (e.g. inside Termux) can control the phone directly.
 
 ### Enable the bridge
 
-1. Open PrivateAgent → **Settings**.
+1. Open ArcaneFlow → **Settings**.
 2. Under **Hermes Remote (Experimental)**, toggle **Enable Hermes Bridge**.
 3. The bridge listens on `http://127.0.0.1:8767` (same-device only).
 
@@ -88,7 +88,7 @@ curl -X POST http://127.0.0.1:8767/tap -H "Content-Type: application/json" -d '{
 
 To enable remote access:
 1. Acquire a bot token from BotFather on Telegram.
-2. Input the token in the PrivateAgent Settings screen and enable the integration toggle.
+2. Input the token in the ArcaneFlow Settings screen and enable the integration toggle.
 3. The application will maintain a background polling connection to the Telegram API to receive commands.
 
 ## License

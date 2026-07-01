@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 /// Dart bridge to the native AccessibilityService.
 /// Provides screen reading, UI element interaction, and gesture control.
 class ScreenAutomationService {
-  static const _channel = MethodChannel('com.privateagent/accessibility');
+  static const _channel = MethodChannel('com.arcane.flow/accessibility');
 
   /// Check if the accessibility service is running
   Future<bool> isServiceRunning() async {

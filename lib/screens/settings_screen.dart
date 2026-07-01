@@ -628,7 +628,7 @@ class _SettingsScreenState extends State<SettingsScreen>
                 const SizedBox(height: 12),
                 if (!isRunning) ...[
                   const Text(
-                    'Tap below to open Accessibility Settings, then find "PrivateAgent Screen Control" and enable it.',
+                    'Tap below to open Accessibility Settings, then find "ArcaneFlow Screen Control" and enable it.',
                     style: TextStyle(fontSize: 13),
                   ),
                   const SizedBox(height: 12),

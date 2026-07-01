@@ -1,4 +1,4 @@
-package com.orailnoor.privateagent
+package com.arcane.flow
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.GestureDescription

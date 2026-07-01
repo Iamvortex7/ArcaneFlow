@@ -3,16 +3,16 @@ import 'screens/home_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const PrivateAgentApp());
+  runApp(const ArcaneFlowApp());
 }
 
-class PrivateAgentApp extends StatelessWidget {
-  const PrivateAgentApp({super.key});
+class ArcaneFlowApp extends StatelessWidget {
+  const ArcaneFlowApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'PrivateAgent',
+      title: 'ArcaneFlow',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(

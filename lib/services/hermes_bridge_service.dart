@@ -6,7 +6,7 @@ import 'app_launcher_service.dart';
 import 'screen_automation_service.dart';
 
 /// A lightweight HTTP bridge that lets a local Hermes instance control the
-/// device through PrivateAgent.
+/// device through ArcaneFlow.
 ///
 /// Binds to `127.0.0.1:8767` by default so only apps on the same device can
 /// reach it (Termux, adb shell, etc.).
