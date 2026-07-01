@@ -42,6 +42,9 @@ dependencies:
   # Shizuku (optional)
   shizuku_api: ^1.2.2
 
+  # Background scheduling
+  workmanager: ^0.5.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

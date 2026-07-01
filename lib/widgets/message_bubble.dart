@@ -14,25 +14,48 @@ class MessageBubble extends StatelessWidget {
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.8,
+          maxWidth: MediaQuery.of(context).size.width * 0.82,
         ),
         margin: EdgeInsets.only(
           left: isUser ? 48 : 8,
           right: isUser ? 8 : 48,
-          top: 4,
-          bottom: 4,
+          top: 6,
+          bottom: 6,
         ),
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          color: isUser
-              ? Theme.of(context).colorScheme.primary
-              : Theme.of(context).colorScheme.surfaceContainerHighest,
+          gradient: isUser
+              ? const LinearGradient(
+                  colors: [Color(0xFF00E5FF), Color(0xFF0288D1)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+              : const LinearGradient(
+                  colors: [Color(0xFF1A1F35), Color(0xFF151B2E)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
           borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(16),
-            topRight: const Radius.circular(16),
-            bottomLeft: Radius.circular(isUser ? 16 : 4),
-            bottomRight: Radius.circular(isUser ? 4 : 16),
+            topLeft: const Radius.circular(18),
+            topRight: const Radius.circular(18),
+            bottomLeft: Radius.circular(isUser ? 18 : 4),
+            bottomRight: Radius.circular(isUser ? 4 : 18),
           ),
+          border: Border.all(
+            color: isUser
+                ? const Color(0xFF00E5FF).withValues(alpha: 0.3)
+                : Colors.white.withValues(alpha: 0.06),
+            width: 0.5,
+          ),
+          boxShadow: isUser
+              ? [
+                  BoxShadow(
+                    color: const Color(0xFF00E5FF).withValues(alpha: 0.15),
+                    blurRadius: 8,
+                    offset: const Offset(0, 2),
+                  ),
+                ]
+              : null,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,13 +63,19 @@ class MessageBubble extends StatelessWidget {
             // Action result badge
             if (message.actionResult != null) ...[
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                 margin: const EdgeInsets.only(bottom: 8),
                 decoration: BoxDecoration(
                   color: message.actionResult!.success
-                      ? Colors.green.withValues(alpha: 0.2)
-                      : Colors.red.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(8),
+                      ? const Color(0xFF00E676).withValues(alpha: 0.12)
+                      : const Color(0xFFFF5252).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(
+                    color: message.actionResult!.success
+                        ? const Color(0xFF00E676).withValues(alpha: 0.3)
+                        : const Color(0xFFFF5252).withValues(alpha: 0.3),
+                    width: 0.5,
+                  ),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -57,8 +86,8 @@ class MessageBubble extends StatelessWidget {
                           : Icons.error_outline,
                       size: 14,
                       color: message.actionResult!.success
-                          ? Colors.green
-                          : Colors.red,
+                          ? const Color(0xFF00E676)
+                          : const Color(0xFFFF5252),
                     ),
                     const SizedBox(width: 4),
                     Text(
@@ -66,8 +95,8 @@ class MessageBubble extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 11,
                         color: message.actionResult!.success
-                            ? Colors.green
-                            : Colors.red,
+                            ? const Color(0xFF00E676)
+                            : const Color(0xFFFF5252),
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -79,9 +108,7 @@ class MessageBubble extends StatelessWidget {
             SelectableText(
               message.content,
               style: TextStyle(
-                color: isUser
-                    ? Theme.of(context).colorScheme.onPrimary
-                    : Theme.of(context).colorScheme.onSurface,
+                color: isUser ? const Color(0xFF0A0E1A) : const Color(0xFFE0E7FF),
                 fontSize: 15,
                 height: 1.4,
               ),
@@ -93,14 +120,8 @@ class MessageBubble extends StatelessWidget {
               style: TextStyle(
                 fontSize: 11,
                 color: isUser
-                    ? Theme.of(context)
-                        .colorScheme
-                        .onPrimary
-                        .withValues(alpha: 0.6)
-                    : Theme.of(context)
-                        .colorScheme
-                        .onSurface
-                        .withValues(alpha: 0.5),
+                    ? const Color(0xFF0A0E1A).withValues(alpha: 0.5)
+                    : const Color(0xFF8892B0),
               ),
             ),
           ],
